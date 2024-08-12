@@ -11,19 +11,20 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public  final class LoginPageTest extends BaseTest {
+public final class HomePageTest extends BaseTest {
 
-    private  LoginPageTest() //constructor -so no one can create the object
+    private HomePageTest() //constructor -so no one can create the object
     {
 
     }
 
-    @Test
-    public void Test1() {
-        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[@id='APjFqb']")));
-        element.sendKeys("Automation", Keys.ENTER);
 
-        //DriverManager.getDriver().findElement(By.name("q")).sendKeys("Automation", Keys.ENTER);
+    @Test
+    public void searchAutomationInSearchBox() {
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(10));
+        WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
+        searchBox.sendKeys("Automation", Keys.ENTER);
     }
+
 }
+
